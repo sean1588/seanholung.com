@@ -5,7 +5,7 @@ enableRobotsTXT = true
 disableKinds = ['taxonomy', 'term']
 
 [params]
-  description = 'Paste a CSV or JSON, get a dashboard you can keep. The schema is portable; the data stays in your browser.'
+  description = 'Paste CSV or JSON, or fetch a public URL. Mise turns tabular data into a dashboard you can refresh and edit.'
 
 [markup]
   [markup.goldmark]
