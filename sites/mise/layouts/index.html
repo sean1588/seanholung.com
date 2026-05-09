@@ -422,12 +422,12 @@
   {{/* ── Hero ──────────────────────────────────────────────────── */}}
   <section class="hero">
     <div class="hero-eyebrow">mise en place — for your data</div>
-    <h1>A dashboard <br />that runs <em>entirely</em><br /> in <span class="underline">your browser.</span></h1>
-    <p class="hero-sub">Drop a CSV or JSON, or paste a public URL. Mise reads the shape once, lays out the widgets, and renders the dashboard right there in your tab. No accounts, no servers holding your rows — we see your data for a few seconds, then forget it.</p>
+    <h1>A dashboard <br />from the data<br /> you <span class="underline">already have.</span></h1>
+    <p class="hero-sub">Drop CSV or JSON, paste raw data, or fetch a public GET endpoint. Mise reads the shape, plates a dashboard, and lets you ask The Chef for edits without setting up a BI tool or a database.</p>
     <div class="hero-cta-row">
       <a href="https://app.mise.seanholung.com" class="btn btn-primary">Sauté it ↗</a>
       <a href="https://app.mise.seanholung.com" class="btn btn-ghost">See it live</a>
-      <span class="hero-meta">No signup. No saved data. Yours in ~12 seconds.</span>
+      <span class="hero-meta">No signup. Browser-local saves. Refreshable public URLs.</span>
     </div>
   </section>
 
@@ -441,9 +441,9 @@
           <span class="shot-dot" style="background: #1e6b4f;"></span>
         </div>
         <div class="shot-url">
-          <span style="opacity: 0.5;">📄</span>&nbsp;&nbsp;<span class="accent">meta-q1-2026.html</span>&nbsp;<span style="opacity: 0.5;">· local</span>
+          <span style="opacity: 0.5;">📄</span>&nbsp;&nbsp;<span class="accent">revenue-dashboard</span>&nbsp;<span style="opacity: 0.5;">· this browser</span>
         </div>
-        <div class="shot-pill">live · refreshed 2m ago</div>
+        <div class="shot-pill">HTTP · refreshable</div>
       </div>
       <div class="shot-body">
         <div class="kpi-band">
@@ -512,22 +512,22 @@
   <section class="manifesto">
     <div class="manifesto-inner">
       <div class="manifesto-eyebrow">— A note on AI dashboards —</div>
-      <h2>You don't need <span class="strike">another chatbot</span><br />that <em>generates</em> a chart.<br />You need a chart that <em>renders — and leaves.</em></h2>
+      <h2>You don't need <span class="strike">another chatbot</span><br />that describes your data.<br />You need a dashboard you can <em>touch, refresh, and revise.</em></h2>
     </div>
   </section>
 
   {{/* ── Two doorways ──────────────────────────────────────────── */}}
   <section class="section" id="how">
     <div class="section-eyebrow">Two doorways · one product</div>
-    <h2 class="section-title">Bring the data in. <em>Take the dashboard with you.</em></h2>
-    <p class="section-lede">Mise is a renderer, not a database. We read your data once to infer its shape, then the dashboard runs locally in your tab. Snapshot what you have, or stream from a URL you control.</p>
+    <h2 class="section-title">Bring the data in. <em>Keep the recipe.</em></h2>
+    <p class="section-lede">Mise is a dashboard renderer, not a warehouse. It samples your rows to design a layout, stores finished dashboards in this browser, and can refresh an HTTP-backed dashboard without asking the model to plan it again.</p>
 
     <div class="doors">
       <div class="door">
         <span class="pull">For analysts</span>
         <div class="door-num"><span class="dot"></span>Doorway 01 · Snapshot</div>
         <h3>Drop a file. See a dashboard.</h3>
-        <p>CSV, JSON, XLSX, or paste. The schema is inferred, the widgets are laid out, the page renders — all in your browser. Export the whole thing as a self-contained HTML file when you're done.</p>
+        <p>CSV, JSON, or paste. Mise infers the schema, asks for a layout recipe, renders KPIs and charts, and keeps the finished dashboard in this browser so you can come back to it later.</p>
         <div class="door-demo">
           <span class="c-com"># drag-and-drop or paste</span><br />
           <span class="c-key">file</span>: <span class="c-str">"q1_2026_revenue.csv"</span><br />
@@ -538,13 +538,13 @@
 
       <div class="door">
         <span class="pull">For pipelines</span>
-        <div class="door-num"><span class="dot"></span>Doorway 02 · Live URL</div>
+        <div class="door-num"><span class="dot"></span>Doorway 02 · HTTP source</div>
         <h3>Point us at your endpoint.</h3>
-        <p>Paste any public GET URL — your stack's read API, a Google Sheet, a public JSON. Your browser polls it on your cadence; the dashboard refreshes itself. Your data stays at your URL.</p>
+        <p>Paste a public GET URL that returns JSON or CSV. Mise fetches the rows, builds the dashboard, and adds a refresh button so the same recipe can run against the latest response.</p>
         <div class="door-demo">
           <span class="c-com"># paste a public endpoint</span><br />
           <span class="c-key">url</span>:      <span class="c-str">"api.acme.com/v1/metrics"</span><br />
-          <span class="c-key">poll</span>:     <span class="c-num">5m</span> <span class="c-com">· every 5 minutes</span><br />
+          <span class="c-key">refresh</span>:  <span class="c-num">manual</span> <span class="c-com">· reuse the recipe</span><br />
           <span class="c-key">status</span>:   <span class="c-num">200 OK</span> <span class="c-com">· schema matched ✓</span>
         </div>
       </div>
@@ -559,14 +559,14 @@
       <div class="persona">
         <div class="persona-tag">Analyst</div>
         <h4>"I have a CSV due at 3pm."</h4>
-        <p>Drop it. Get a dashboard. Export the page as a self-contained HTML file and email it. Nothing was uploaded; nothing was stored. Refresh next quarter by dropping the new file in.</p>
-        <div class="persona-quote">"It just rendered. Nothing to manage."</div>
+        <p>Drop it. Get a dashboard. Export a PNG for the deck or download the recipe as JSON. If the layout needs polish, ask The Chef to hide a note, promote a KPI, or swap a chart.</p>
+        <div class="persona-quote">"It went from rows to something I could talk through."</div>
       </div>
       <div class="persona">
         <div class="persona-tag">Pipeline owner</div>
         <h4>"I have a read API. I want a chart on top of it."</h4>
-        <p>Paste your endpoint, pick a cadence. Your browser polls, parses, renders. Your data never leaves your infra; we hold the schema, not the rows.</p>
-        <div class="persona-quote">"A live chart pointed at our API."</div>
+        <p>Paste the endpoint. Mise fetches, parses, renders, and remembers the source URL with the saved dashboard. Hit refresh when the upstream data changes.</p>
+        <div class="persona-quote">"A dashboard pointed at our API, without building dashboard infra."</div>
       </div>
     </div>
   </section>
@@ -575,21 +575,21 @@
   <section class="section" id="privacy" style="padding-top: 24px;">
     <div class="privacy-card">
       <div class="section-eyebrow">A note on what we keep</div>
-      <h2 class="section-title">We see your data <em>once.</em> Then we forget it.</h2>
-      <p>When you drop a file, we send the rows to a small inference service that decides which widgets to render and where. The response is the layout — a recipe, not a copy. The rows go nowhere else. We don't have a database for them. There's no <em>my dashboards</em> page hiding your data on our servers, because there are no servers holding your data.</p>
-      <p class="privacy-bullets">No accounts · no storage · no audit logs of your numbers · export the dashboard as HTML and host it yourself</p>
+      <h2 class="section-title">The server plans. <em>Your browser keeps.</em></h2>
+      <p>When you render a dashboard, Mise sends sampled data to a small inference service to decide which widgets to render and where. For public URLs, a lightweight proxy fetches the endpoint so CORS does not get in your way. The saved dashboard, source URL, rows, and recipe live in your browser storage, not in a hosted account.</p>
+      <p class="privacy-bullets">No accounts · no hosted dashboard database · browser-local saves · PNG and recipe export</p>
     </div>
   </section>
 
   {{/* ── Closing CTA ───────────────────────────────────────────── */}}
   <section class="section" id="start" style="padding-top: 40px; padding-bottom: 120px;">
     <div class="closing">
-      <div class="section-eyebrow">Ready in twelve seconds</div>
+      <div class="section-eyebrow">Ready when your rows are</div>
       <h2 class="section-title">Make your <em>first dashboard</em>.</h2>
-      <p class="closing-sub">No card. No signup. No saved data. Drop a file, see your dashboard, export it as HTML and take it with you.</p>
+      <p class="closing-sub">No card. No signup. Drop a file or fetch a public URL, then edit the dashboard with The Chef and refresh it when the source changes.</p>
       <div class="closing-row">
         <a href="https://app.mise.seanholung.com" class="btn btn-primary">Sauté your data ↗</a>
-        <a href="#" class="btn btn-ghost">Read the docs</a>
+        <a href="https://app.mise.seanholung.com" class="btn btn-ghost">Try sample data</a>
       </div>
     </div>
   </section>
