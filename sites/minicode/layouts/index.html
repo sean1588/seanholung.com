@@ -377,13 +377,13 @@
           </div>
         </div>
         <div>
-          <div class="hero-visual" role="button" tabindex="0" aria-label="Open screenshot full screen" data-lightbox-src="/images/minicode-ui.webp">
+          <div class="hero-visual" role="button" tabindex="0" aria-label="Open screenshot full screen" data-lightbox-src="/images/minicode-graph.webp">
             <div class="hv-chrome">
               <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
               <span class="hv-title">minicode serve · localhost:4567</span>
             </div>
             <div class="hv-body">
-              <img src="/images/minicode-ui.webp" alt="minicode web UI showing chat, dependency graph, and symbol detail panel" width="1723" height="920" />
+              <img src="/images/minicode-graph.webp" alt="minicode web UI showing chat, dependency graph, and symbol detail panel" width="1920" height="942" />
               <span class="hv-callout hv-callout-1">chat window</span>
               <span class="hv-callout hv-callout-2">dependency graph</span>
               <span class="hv-callout hv-callout-3">symbol focus</span>
@@ -480,7 +480,7 @@
           <span class="hv-dot"></span><span class="hv-dot"></span><span class="hv-dot"></span>
           <span class="hv-title">localhost:4567 · runTurn — packages/agent-sdk/src/agent/agent.ts</span>
         </div>
-        <img src="/images/minicode-ui.webp" alt="minicode web UI showing tool stream, graph, and symbol panel" width="1723" height="920" />
+        <img src="/images/minicode-graph.webp" alt="minicode web UI showing tool stream, graph, and symbol panel" width="1920" height="942" />
       </div>
       <div class="app-callouts">
         <article class="app-callout">
@@ -648,14 +648,32 @@
     </div>
   </section>
 
-  {{/* ── Lightbox ────────────────────────────────────────────────── */}}
+  <script>
+    // Copy buttons on install blocks
+    document.querySelectorAll(".install-row .copy").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var text = btn.getAttribute("data-copy") || "";
+        if (navigator.clipboard) navigator.clipboard.writeText(text);
+        var orig = btn.textContent;
+        btn.textContent = "copied";
+        btn.classList.add("ok");
+        setTimeout(function () {
+          btn.textContent = orig;
+          btn.classList.remove("ok");
+        }, 1400);
+      });
+    });
+  </script>
+{{ end }}
+
+{{ define "body-end" }}
+  {{/* Lightbox lives outside <main> so its z-index escapes main's stacking context (and beats the sticky nav). */}}
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" type="button" aria-label="Close">close ✕</button>
     <img alt="" />
   </div>
 
   <script>
-    // Lightbox for the hero screenshot
     (function () {
       var lb = document.getElementById("lightbox");
       if (!lb) return;
@@ -691,20 +709,5 @@
         if (e.key === "Escape" && lb.getAttribute("data-open") === "true") close();
       });
     })();
-
-    // Copy buttons on install blocks
-    document.querySelectorAll(".install-row .copy").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var text = btn.getAttribute("data-copy") || "";
-        if (navigator.clipboard) navigator.clipboard.writeText(text);
-        var orig = btn.textContent;
-        btn.textContent = "copied";
-        btn.classList.add("ok");
-        setTimeout(function () {
-          btn.textContent = orig;
-          btn.classList.remove("ok");
-        }, 1400);
-      });
-    });
   </script>
 {{ end }}
